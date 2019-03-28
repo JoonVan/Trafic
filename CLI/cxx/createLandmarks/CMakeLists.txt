@@ -12,13 +12,16 @@ argio.h
 fiberprocessing.h
 )
 
-find_package(SlicerExecutionModel REQUIRED)
-include(${SlicerExecutionModel_USE_FILE})
-
+#Find ITK Package
 find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
 
-find_package(VTK REQUIRED)
+#Find Slicer Execution Model Package
+find_package(SlicerExecutionModel REQUIRED)
+include(${SlicerExecutionModel_USE_FILE})
+
+#Find VTK Package
+find_package(VTK COMPONENTS vtkCommonCore vtkFiltersCore vtkIOGeometry vtkIOXML REQUIRED)
 include(${VTK_USE_FILE})
 
 
