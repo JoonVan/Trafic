@@ -4,18 +4,18 @@ cmake_minimum_required(VERSION 2.8)
 PROJECT(FiberSampling)
 
 enable_testing()
-#Find VTK Package
-find_package(VTK REQUIRED)
 
 #Find ITK Package
 find_package(ITK REQUIRED)
+include(${ITK_USE_FILE})
 
 #Find Slicer Execution Model Package
 find_package(SlicerExecutionModel REQUIRED)
-
-include(${VTK_USE_FILE})
-include(${ITK_USE_FILE})
 include(${SlicerExecutionModel_USE_FILE})
+
+#Find VTK Package
+find_package(VTK COMPONENTS vtkCommonCore vtkFiltersCore vtkIOGeometry vtkIOXML REQUIRED)
+include(${VTK_USE_FILE})
 
 file(
 GLOB
